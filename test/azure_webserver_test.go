@@ -30,9 +30,9 @@ func TestAzureLinuxVMCreation(t *testing.T) {
 		},
 	}
 
+	terraform.Init(t, terraformOptions)
+	terraform.Apply(t, terraformOptions)
 	defer terraform.Destroy(t, terraformOptions)
-
-	terraform.InitAndApply(t, terraformOptions)
 
 	vmName := terraform.Output(t, terraformOptions, "vm_name")
 	resourceGroupName := terraform.Output(t, terraformOptions, "resource_group_name")
