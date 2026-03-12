@@ -20,6 +20,7 @@ terraform {
 provider "azurerm" {
   # Leave the features block empty to accept all defaults
   features {}
+  skip_provider_registration = true
 }
 
 provider "cloudinit" {
